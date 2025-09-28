@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { ServerStatusComponent } from './components/dashboard/server-status/server-status.component';
 import { TrafficComponent } from './components/dashboard/traffic/traffic.component';
@@ -11,6 +11,16 @@ import { DashboardItemComponent } from "./components/dashboard/dashboard-item/da
   imports: [HeaderComponent, ServerStatusComponent, TrafficComponent, TicketsComponent, DashboardItemComponent],
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+  constructor() {
+    console.log('AppComponent constructor-1', );
+    effect(() => {
+      console.log('AppComponent effect');
+    });
+  }
+
+  ngOnInit() {
+    console.log('AppComponent ngOnInit' );
+  }
 }
